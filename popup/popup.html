@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Great PDF Translator</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="splashScreen" class="view active">
+      <div class="splash-content">
+        <img src="../icons/icon128.png" alt="Extension Logo" class="app-logo">
+        <h2>Great PDF Translator</h2>
+        <p>Select text and press Shift to translate!</p>
+        <button id="goToSettingsBtn" class="settings-gear-btn">
+          <i class="fas fa-cog"></i> Settings
+        </button>
+      </div>
+    </div>
+
+    <div id="settingsScreen" class="view hidden">
+      <div class="settings-header">
+        <h3>Settings</h3>
+        <button id="backToSplashBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+      </div>
+
+      <div class="setting-group">
+        <label for="apiProvider">AI Provider:</label>
+        <select id="apiProvider">
+          <option value="gemini">Google Gemini</option>
+          <option value="openai">OpenAI GPT</option>
+        </select>
+      </div>
+
+      <div class="setting-group">
+        <label for="apiKey">API Key:</label>
+        <input type="password" id="apiKey" placeholder="Enter your API key">
+      </div>
+
+      <div class="setting-group">
+        <label for="apiEndpoint">API Endpoint:</label>
+        <input type="text" id="apiEndpoint"
+          placeholder="e.g., https://generativelanguage.googleapis.com/v1beta/models/">
+      </div>
+
+      <div class="setting-group">
+        <label for="aiModel">AI Model:</label>
+        <select id="aiModel"></select>
+      </div>
+
+      <div class="setting-group">
+        <div class="label-with-button">
+          <label for="customPrompt">Custom Prompt:</label>
+          <button id="resetPromptBtn" class="btn btn-secondary btn-small">Reset to Default</button>
+        </div>
+        <textarea id="customPrompt" rows="4"
+          placeholder="e.g., Translate the following text into Vietnamese: '{text}'"></textarea>
+        <small>Use <code>{text}</code> as a placeholder for the selected text.</small>
+      </div>
+
+      <div class="buttons-group">
+        <button id="saveSettings" class="btn btn-primary">Save Settings</button>
+        <button id="cancelSettings" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div id="toastContainer"></div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
